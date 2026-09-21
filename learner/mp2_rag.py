@@ -445,8 +445,8 @@ def cmd_ask() -> None:
         print(f"\n{result['answer']}\n")
         print("  Sources:")
         for c in result["citation"]:
-            print(f"    - {c['title']} — {c['section']}")
-        print(f"  Latency: {result.get('latency_ms', '?')}ms\n")
+            #print(f"    - {c['title']} — {c['section']}")
+            print(f"  Latency: {result.get('latency_ms', '?')}ms\n")
 
 
 def cmd_validate() -> None:

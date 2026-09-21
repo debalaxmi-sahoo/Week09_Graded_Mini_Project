@@ -1,0 +1,122 @@
+python '/voc/work/Week09_Graded_Mini_Project/learner/mp2_rag.py' ingest
+→ Total chunks: 73
+→ Setting up Qdrant collection…
+>>> ENTER setup_collection
+Deleted existing 'mp2_sherlock' collection.
+Created collection 'mp2_sherlock'
+  dim:    1536
+  metric: Cosine
+  points: 0
+→ Ingesting…
+inside ingest_chunks
+Number of chunks: 73
+Number of texts: 73
+Number of vectors: 73
+Number of Qdrant points: 73
+upserting data
+Created collection 'mp2_sherlock'
+  dim:      1536
+  metric:   Cosine
+  points:   73
+
+✓ Done. Try: python mp2_rag.py ask
+
+
+-----------------------------------------------------------------------------------
+
+ask
+python '/voc/work/Week09_Graded_Mini_Project/learner/mp2_rag.py' ask
+Mini-RAG over the Sherlock Holmes corpus.
+Type your question. Empty line or Ctrl-C to exit.
+
+? Who was the assistant working at Jabez Wilson's pawnshop
+COLLECTION_NAME mp2_sherlock
+Q: "Who was the assistant working at Jabez Wilson's pawnshop"
+length :3 
+
+The assistant working at Jabez Wilson's pawnshop was Vincent Spaulding. He is described as small, quick, and clever, and he has a fondness for photography. (The Red-Headed League — 01_red_headed_league.txt)
+
+  Sources:
+  Latency: 1393.4134360169992ms
+
+  Latency: 1393.4134360169992ms
+
+  Latency: 1393.4134360169992ms
+  -----------------------------------------------------------------------------------
+    Validate
+
+python '/voc/work/Week09_Graded_Mini_Project/learner/mp2_rag.py' validate
+
+  Validating 2 questions from predefined_questions.jsonl…
+
+COLLECTION_NAME mp2_sherlock
+Q: "Who was the assistant working at Jabez Wilson's pawnshop, and what was his real identity?"
+length :3 
+result citation   ['01_red_headed_league.txt', '01_red_headed_league.txt', '01_red_headed_league.txt']
+  ✓ q1_red_headed_league_assistant
+      Q: Who was the assistant working at Jabez Wilson's pawnshop, and what was his real identity?
+Ans: the assistant working at jabez wilson's pawnshop was vincent spaulding. his real identity, however, is not explicitly mentioned in the provided excerpts. they describe him as small, quick, clever, and fond of photography, but do not reveal any further details about his true identity. (the red-headed league — 01_red_headed_league.txt)
+      Cited: 01_red_headed_league.txt
+      Expected: 01_red_headed_league.txt
+      Facts matched: 1/5
+      Latency: 1319.0477470052429ms
+
+COLLECTION_NAME mp2_sherlock
+Q: 'What killed Julia Stoner at Stoke Moran, and how was the method discovered?'
+length :3 
+result citation   ['02_speckled_band.txt', '02_speckled_band.txt', '02_speckled_band.txt']
+  ✓ q2_speckled_band_murder_weapon
+      Q: What killed Julia Stoner at Stoke Moran, and how was the method discovered?
+Ans: julia stoner was killed by a mysterious cause that was initially undetectable; the coroner found no poison, no wound, and no struggle. the method of her death was discovered when she cried out in terror about "the band" before collapsing. this led to the investigation by holmes, who later uncovered that a snake, specifically a "speckled band," was used by her stepfather, doctor roylott, to murder her. the details of her death and the circumstances surrounding it were revealed through the examination of her room and the events leading up to her death (the adventure of the speckled band — 02_speckled_band.txt).
+      Cited: 02_speckled_band.txt
+      Expected: 02_speckled_band.txt
+      Facts matched: 2/6
+      Latency: 1748.8237450015731ms
+
+  Source-match: 2/2
+
+  Validating 3 questions from learner_questions.jsonl…
+
+COLLECTION_NAME mp2_sherlock
+Q: 'Why did Ryder put the gemstone inside a goose?'
+length :3 
+result citation   ['03_blue_carbuncle.txt', '03_blue_carbuncle.txt', '03_blue_carbuncle.txt']
+  ✓ q3_blue_carbuncle
+      Q: Why did Ryder put the gemstone inside a goose?
+Ans: ryder put the gemstone inside a goose because he was in a panic after stealing it and wanted to hide it from being discovered. he opened the bill of one of his sister's geese and pushed the stone down its throat to avoid detection. this was done out of fear of a search after he had taken the stone from the countess's jewel case. (the adventure of the blue carbuncle — 03_blue_carbuncle.txt)
+      Cited: 03_blue_carbuncle.txt
+      Expected: 03_blue_carbuncle.txt
+      Facts matched: 0/3
+      Latency: 1632.624930003658ms
+
+COLLECTION_NAME mp2_sherlock
+Q: 'How did the frightened woman help Hatherley escape from the hydraulic press?'
+length :3 
+result citation   ['04_engineers_thumb.txt', '04_engineers_thumb.txt', '04_engineers_thumb.txt']
+  ✓ q4_engineers_thumb
+      Q: How did the frightened woman help Hatherley escape from the hydraulic press?
+Ans: the frightened woman helped hatherley escape from the hydraulic press by seizing his hand and dragging him through a window onto a balcony. she then pointed him toward a flowering vine that he could climb down to escape. this occurred just as colonel stark appeared at the window with a heavy meat-cleaver. (the adventure of the engineer's thumb — 04_engineers_thumb.txt)
+      Cited: 04_engineers_thumb.txt
+      Expected: 04_engineers_thumb.txt
+      Facts matched: 0/2
+      Latency: 1614.8139750002883ms
+
+COLLECTION_NAME mp2_sherlock
+Q: 'How did Irene Adler outsmart Sherlock Holmes and prevent him from obtaining the photograph, despite Holmes successfully discovering its hiding place? Explain the clues that allowed Adler to recognize Holmes and the steps she took to protect herself.'
+length :3 
+result citation   ['05_scandal_in_bohemia.txt', '05_scandal_in_bohemia.txt', '05_scandal_in_bohemia.txt']
+  ✓ q5_scandal_in_bohemia
+      Q: How did Irene Adler outsmart Sherlock Holmes and prevent him from obtaining the photograph, despite Holmes successfully discovering its hiding place? Explain the clues that allowed Adler to recognize Holmes and the steps she took to protect herself.
+Ans: irene adler outsmarted sherlock holmes by recognizing his plan and taking steps to protect herself. when holmes executed his scheme to provoke her into revealing the hiding place of the photograph, she acted quickly. during the staged fire, she retrieved the photograph from its hiding place behind a sliding panel above the bell-pull, but instead of leaving it out, she replaced it after the false alarm was recognized. 
+
+holmes's plan relied on creating a situation that would cause adler to act out of instinct, but she was aware enough to recognize the ruse. when holmes later opened the sliding panel, he found that the photograph was gone, replaced by a photograph of adler alone and a letter addressed to him, indicating that she had anticipated his actions and had outsmarted him (a scandal in bohemia — 05_scandal_in_bohemia.txt).
+      Cited: 05_scandal_in_bohemia.txt
+      Expected: 05_scandal_in_bohemia.txt
+      Facts matched: 0/2
+      Latency: 2300.6387620116584ms
+
+  Source-match: 3/3
+
+
+
+
